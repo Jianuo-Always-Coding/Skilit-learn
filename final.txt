@@ -1,0 +1,104 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(drawDonutChart);
+      
+      google.charts.setOnLoadCallback(drawColumnChart); 
+
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['City', 'total price'],
+          ['从化'	, 62508],
+          ['南沙'	, 399209],
+          ['南海'	, 139243],
+          ['增城'	, 950142],
+          ['天河'	, 3846983],
+          ['海珠'	, 2477965],
+          ['番禺'	, 2817996],
+          ['白云'	, 1981597],
+          ['花都'	, 510456],
+          ['荔湾'	, 1257385],
+          ['越秀'	, 1383108],
+          ['顺德'	, 1473],
+          ['黄埔'	, 1266340]
+        ]);
+
+        var options = {
+          title: '2016-2020 total house selling price in each area in Guangzhou (x 10,000)',
+          
+					tooltip: {isHtml: true}     
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+      
+        function drawDonutChart() {
+
+        // Create the data table for Anthony's pizza.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'city');
+        data.addColumn('number', 'amount');
+        data.addRows([
+          ['从化' , 499 ],
+          ['南沙' ,1942 ],
+          ['南海' ,599 ],
+          ['增城' ,5880 ],
+          ['天河' ,10216 ],
+          ['海珠' ,9711 ],
+          ['番禺' ,12938 ],
+          ['白云' ,9813 ],
+          ['花都' ,3647 ],
+          ['荔湾' ,5574 ],
+          ['越秀' ,4598 ],
+          ['顺德', 13 ],
+          ['黄埔' ,5532 ]
+        ]);
+
+        // Set options for Anthony's pie chart.
+        var options = {title:'2016-2020 total selling amount of house in each area in Guangzhou (house unit)',
+        pieHole: 0.4,
+                       };
+
+        // Instantiate and draw the chart for Anthony's pizza.
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+      
+      
+ function drawColumnChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Season', '2016', '2017', '2018','2019','2020'],
+          ['Spring',34834	,681440 ,334141	,460982	,568274],
+          ['Summer',218097 ,410522 ,353479 ,634531 ,1624513],
+          ['Autumn', 583896	,402113	,246224	,674267	,2462859],
+          ['Winter',555164 ,358685 ,265779 ,826334 ,2645892]
+        ]);
+      
+        var options = {
+          chart: {
+            title: 'Seasonal total selling price',
+              subtitle: '2016-2020',
+          
+          }
+        };
+      
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+      
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      } 
+    </script>
+  </head>
+  <body>
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+     <div id="donutchart" style="width: 900px; height: 500px;"></div>
+      <div id="columnchart_material" style="width: 900px; height: 500px;"></div> 
+  </body>
+</html>
